@@ -1,0 +1,177 @@
+
+import javax.swing.JOptionPane;
+
+public class WelcomeDemo {
+
+	public static void main(String[] args) {
+  
+		//Java语言程序设计·基础篇：
+		System.out.println("Welcome to Java");
+		System.out.println("Welcome to Computer Science");
+		System.out.println("Programming is fun");
+		
+		//Java核心技术卷一：
+		String greeting = "Welcome to Core Java!";	
+		for(int i = 0; i < greeting.length(); i++) {
+			System.out.print("+");
+			}
+		System.out.println();
+		System.out.println(greeting);
+		
+		for(int i = 0; i < greeting.length(); i++) {
+			System.out.print("+");
+			}
+		System.out.println();
+		
+		//Java语言程序设计课后题：
+		for(int i = 0; i < 5; i++) {
+			System.out.println("Welcome to Java!");
+		}
+		System.out.println();
+		
+     
+		//编写一个程序，显示下面的图案：
+		System.out.println("    J     A    V     V    A");
+		System.out.println("    J    A A    V   V    A A");
+		System.out.println("J   J   AAAAA    V V    AAAAA");
+		System.out.println(" J J   A     A    V    A     A");
+		
+ 
+		//编写程序，显示以下表格：
+		System.out.println("a    a^2  a^3");
+		System.out.println("1    1    1");
+		System.out.println("2    4    8");
+		System.out.println("3    9    27");
+		System.out.println("4    16   64");
+		
+   
+		//编写程序，显示(9.5*4.5-2.5*3)/(45.5-3.5)的结果；
+		System.out.println((9.5*4.5-2.5*3)/(45.5-3.5));
+		
+
+		//编写程序，显示1+2+3+4+5+6+7+8+9的结果。
+		System.out.println(1+2+3+4+5+6+7+8+9);
+		
+		//方法二：利用数值
+		//声明变量数组
+		int intArray[] = new int[10];
+		long total = 0;
+		//为数组赋值
+		for(int i = 0; i < 10; i++) {
+			intArray[i] = i;
+			total += intArray[i];   //求和
+		}
+		 System.out.println("所有数组元素的和为：" + total);
+		 
+ 
+		//近似求π，编写程序，显示4 * ( 1 - 1 / 3 + 1 / 5 - 1 /7 + 1 / 9 - 1 / 11 + 1 / 13 + ……)的结果。在程序中，用1.0代替1。
+		//声明赋值变量
+		int max = 1000;
+		double item = 0;
+		double sum = 0;
+		int flag = -1;
+		//求值
+		for(int n = 0; n <= max; n++) {
+			flag *=-1;
+			item = flag * 1.0/(2 * n + 1);
+			sum += item;
+		}
+		System.out.println("π的近似值 = "+sum * 4);
+		
+
+		//编写程序，计算并显示半径为5.5的圆的面积和周长。
+		//声明变量并赋值
+		double r = 5.5;
+		double c,
+		s1;
+		
+		
+		//计算
+		c = 2 * r * 3.14159;
+		s1 = r * r * 3.14159;
+		System.out.println("它的周长为："+c);
+		System.out.println("它的面积为："+s1);
+		
+
+		//编写程序，使用以下公式计算并显示宽度为4.5、高度为7.9的矩形的面积和周长。
+		//声明变量并赋值。
+		double w = 4.5, h = 7.9;
+		double s2,c2;
+		
+		//计算
+		s2 = w * h;
+		c2 = (2* w) + (2 * h);
+		System.out.println("面积为："+s2);
+		System.out.println("周长为："+c2);
+		
+    
+
+		//假设一个跑步者45分钟30秒内跑了14公里。编写一个程序，显示以每小时多少英里为单位的平均速度值。
+		//一英里为1.6公里；
+		//声明变量并赋值；
+		double time = 45.5 / 60 ;
+		double mile = 14 /1.6;
+		double speed1 = mile / time ;
+		
+		System.out.println("速度为："+speed1);
+		
+  
+		/**美国人口调查局基于以下假设进行人口估算；
+		 * 每七秒有一个人诞生；
+		 * 每13秒有一个人死亡；
+		 * 每45秒有一个移民迁入
+		 * 编写一个程序，显示未来5年的每年的人口数。
+		 * 假设当前人口为312 032 486 ，每年有365天；
+		 * 
+		 */
+		long dayTime = 24 * 60 * 60 * 365;
+		double birth = dayTime / 7.0 ,
+			   death = dayTime / 13.0,
+			   immigration = dayTime / 45.0;
+		long population = 312032486 ;
+		
+		double addPopulation =  birth - death + immigration,
+			   onePopulation = addPopulation + population,
+			   twoPopulation = 2 * addPopulation + population,
+			   threePopulation = 3 * addPopulation + population,
+			   fourPopulation = 4 *addPopulation + population,
+			   fivePopulation = 5 * addPopulation + population;
+		System.out.println("未来一年的人口："+onePopulation);
+		System.out.println("未来第二年的人口："+ twoPopulation);
+		System.out.println("未来第三年的人口："+ threePopulation);
+		System.out.println("未来第四年的人口："+ fourPopulation);
+		System.out.println("未来第五年的人口："+ fivePopulation);
+		
+    
+  
+		//假设一个跑步者1小时40分钟35秒内跑了24英里。
+		//编写一个程序显示以每小时公里为单位的平均速度值。
+		double runTime = 1 + (40 / 60 ) + (35 / 3600),
+			   runKilo = 24 * 1.6 ;
+		double runSpeed = runKilo / runTime;
+		
+		System.out.println("平均速度值："+ runSpeed);
+		
+		
+  
+    /**
+		 * 可以使用Cramer规则解下面2*2线性方程式；
+		 * ax + by = e;
+		 * cx + dy = f;
+		 * x = (ed - bf)/(ad - bc);
+		 * y = (af - ec)/(ad - bc);
+		 * 编写程序，求解以下方程组，并显示x和y的值。
+		 * 3.4x + 50.2y = 44.5;
+		 * 2.1x + 0.55y = 5.9;
+		 */
+		
+		double x = (44.5 * 0.55 - 50.2 * 5.9)/(3.4 * 0.55 - 50.2 * 2.1),
+			   y = (3.4 * 5.9 - 44.5 * 2.1)/(3.4 * 0.55 - 50.2 *2.1);
+			   
+		System.out.println("x的值为："+x);
+		System.out.println("y的值为："+y);
+		
+			   
+		
+	}
+}
