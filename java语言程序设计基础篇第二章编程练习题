@@ -1,0 +1,336 @@
+package chapter2;
+
+import java.util.Scanner;
+
+public class Chapter2 {
+	public static void main(String[] args) {
+		//下面的语句正确么，如果正确，给出输出；
+		System.out.println("25 / 4 is " + 25 / 4);
+		System.out.println("25 / 4.0 is " + 25 / 4.0);
+		System.out.println("3 * 2 / 4 is " + 3 * 2 / 4);
+		System.out.println("3.0 * 2 / 4 is " + 3.0 * 2 / 4);
+		
+		//假设m 和 r 是整数。编写一个java表达式。使得mr^2可以得到一个浮点数类型的结果。
+		int m = 3 ;
+		int r = 4 ;
+		double total = m * Math.pow(r,2);
+		System.out.println(" double total is ： " + total);
+		
+		//计算当前的GMT时间，以小时：分钟：秒 的格式来显示；
+		//调用System.currentTimeMillis() 返回当前时间
+		long totalMilliseconds = System.currentTimeMillis();
+		//计算秒数；
+		long totalSeconds = totalMilliseconds / 1000;
+		long currentSeconds = totalSeconds % 60;
+		//计算分钟；
+		long totalMinutes = totalSeconds / 60 ;
+		long currentMinutes = totalMinutes % 60 ;
+		//计算小时；
+		long totalHours = totalMinutes / 60;
+		long currentHours = totalHours % 24;
+		//显示结果
+		System.out.println("Current time is " + currentHours + ":" + currentMinutes + ":" + currentSeconds + " GMT");
+		
+		//给出以下代码的运行结果：
+		double a = 6.5;
+		a += a + 1;
+		System.out.println(a);
+		
+		//四种加1的运算：
+		//a += 1;
+		//a = a + 1;
+		// a++;
+		// ++a;
+		
+		//给出以下代码的输出：
+		int a2 = 6 ;
+		int b = a2++;
+		System.out.println(a2);
+		System.out.println(b);
+		int a3 = 6;
+		int b2 = ++a3;
+		System.out.println(a3);
+		System.out.println(b2);
+		
+		
+		//2-8 SalesTax.java 将营业税值显示为小数点后两位；
+		Scanner input = new Scanner(System.in);
+		System.out.print("请输入营业额：");
+		double purchaseAmount = input.nextDouble();
+		
+		double tax = purchaseAmount * 0.06;
+		System.out.println("Sales tax is $" + (int)(tax * 100 )/ 100.0);
+		
+		
+		//2-9 ComputerLoan.java 计算贷款支付；
+		//需求规范：系统分析；系统设计；测试；
+		Scanner sc = new Scanner(System.in);
+		System.out.print("请输入贷款的年数：");
+		int numberOfYears = sc.nextInt();
+		System.out.print("请输入年利率百分比：");
+		double annualInterestRate = sc.nextDouble();
+		System.out.print("请输入贷款额度：");
+		double loanAmount = sc.nextDouble();
+		
+		double monthlyInterestRate = annualInterestRate / 1200.0;
+		double monthlyPayment = loanAmount * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, numberOfYears * 12));
+		double totalPayment = monthlyPayment * numberOfYears * 12;
+		
+		System.out.println("月支付额度为：  " + (int)(monthlyPayment * 100 ) / 100.0);
+		System.out.println("总支付额度为：  " + (int)(totalPayment * 100 ) / 100.0);
+		
+		
+		//编写程序，从控制台读入double类型的摄氏温度，然后将其转换为华氏温度；
+		//转换公式为：华氏温度 = （9 / 5 ） * 摄氏温度 + 32；
+		//为确保精确度，应该是 9.0 / 5;
+		System.out.print("请输入摄氏度： ");
+		double C = sc.nextDouble();
+		
+		double F = (9.0 / 5) * C + 32;
+		
+		System.out.println("华氏温度为： " + (int)(F * 100) / 100.0);
+		
+		
+		//编写程序，读入圆柱体的半径和高，并使用下列公式计算圆柱体的体积：
+		//面积 = 半径 * 半径 * π；体积 = 面积 * 高；
+		System.out.print("请输入半径和高： ");
+		double radius = sc.nextDouble();
+		double height = sc.nextDouble();
+		
+		double area = radius * radius * Math.PI;
+		double volume = area * height;
+		
+		System.out.println("圆柱体的体积为： " + (int)(volume * 100 ) / 100.0);
+		
+		
+		//编写程序，读入英尺数，将其转换为米数，并显示结果；
+		//一英尺等于0.305米；
+		System.out.print("请输入英尺数： ");
+		double feet = sc.nextDouble();
+		
+		double meters = feet * 0.305;
+		
+		System.out.println("米数为： " + meters);
+		
+		
+		
+		//编写程序，将磅数转换为千克数。
+		//一磅等于0.454千克；
+		System.out.print("请输入磅数： ");
+		double pounds = sc.nextDouble();
+		
+		double kilograms = pounds * 0.454;
+		
+		System.out.println("千克数为： " + kilograms);
+		
+		
+		//编写一个程序，读入一笔费用与酬金率，计算酬金和总钱数。
+		//总费用 = 费用 + 费用 * 酬金率；酬金 = 费用 * 酬金率；
+		System.out.print("请输入费用和酬金率： ");
+		double subtotal = sc.nextDouble();
+		double gratuityRate = sc.nextDouble();
+		
+		double gratuity = subtotal * gratuityRate / 100.0;
+		double total1 = subtotal + gratuity;
+		
+		System.out.println("酬金为： " + gratuity);
+		System.out.println("总费用： " + total1);
+		
+		
+		//编写程序，读取一个在0 和 1000 之间的整数，并将该整数的各位数字相加；
+		//例如，整数位932，各位数字相加之和为14；
+		System.out.print("请输入一个0 - 1000 之间的整数： ");
+		int A_number = sc.nextInt();
+		
+		int one = A_number / 10;//求出百十位上的数；
+		int two = A_number % 10; //求出个位上的数；
+		int three = one / 10;    //求出百位上的数；
+		int four = one % 10;     //求出十位上的数；
+		
+		int sum = two + three + four;
+		
+		System.out.println("各位数之和为： " + sum);
+		
+		
+		//编写程序，提示用户输入分钟数，然后显示这些分钟代表多少年和多少天；
+		System.out.print("请输入分钟数： ");
+		int numOfMinutes = sc.nextInt();
+		
+		int numOfHours = numOfMinutes / 60;  //求出小时数；
+		int numOfDays = numOfHours / 24;     //求出天数；
+		int numOfYears = numOfDays / 365;     //求出年数；
+		int leftOfDays = numOfDays % 365;     //求出剩余天数；
+		
+		System.out.println(numOfMinutes + "分钟是" + numOfYears + "年" + leftOfDays + "天");
+		
+		
+		//修改格林威治时间的程序，提示用户输入关于GMT的时区偏移量，然后显示在这个特定时区的时间；
+		long totalMillis = System.currentTimeMillis();
+		System.out.print("请输入时区偏移量： ");
+		double offset = sc.nextDouble();
+		long totalSeconds1 = totalMillis / 1000;
+		long totalMinutes1 = totalSeconds1 / 60;
+		long leftSeconds = totalSeconds1 % 60;
+		long totalHours1 = totalMinutes1 / 60;
+		long leftMinutes = totalMinutes1 % 60;
+		long leftHours = totalHours1 % 24;
+		double newHours = leftHours + offset;
+		
+		System.out.println("标准时间为： " + newHours + " : " + leftMinutes + " : " + leftSeconds );
+		
+		
+		//编写程序，求出平均加速度；
+		// a = (v1 - v0 ) / t ;
+		System.out.print("请分别输入起始速度(m/s)、终止速度(m/s)和时间段(s)： ");
+		double v0 = sc.nextDouble();
+		double v1 = sc.nextDouble();
+		double t  = sc.nextDouble();
+		
+		double average = (v1 - v0 ) / t ;
+		
+		System.out.println("平均加速度为： " + (int)(average * 10000 ) / 10000.0);
+		
+		
+		//编写程序，计算将水从初始温度加热到最终温度所需要的能量。
+		//Q =  M * （最终温度 - 初始温度 ） * 4184；
+		System.out.print("请输入水的重量(kg)、水的初始温度(℃)和最终温度（℃）： ");
+		double M = sc.nextDouble();
+		double initial = sc.nextDouble();
+		double finalTp = sc.nextDouble();
+		
+		double energy = M * (finalTp - initial) * 4184;
+		
+		System.out.println("所需能量为： " + (int)(energy * 10 ) / 10.0);
+		
+		
+		//提示用户输入年数，然后显示这个年数之后的人口值；
+		System.out.print("请输入年数： ");
+		int years = sc.nextInt();
+		
+		double Population = 312032486;
+		double timeSeconds = 24 * 60 * 60 * 365 ;
+		double addPopulation = timeSeconds / 7 + timeSeconds / 45 - timeSeconds / 13;
+		double yearsPopulation = years * addPopulation + Population;
+		
+		System.out.println(years + "年后人口数为：" + Math.round(yearsPopulation));
+		
+		
+		//计算出飞机起飞所需的最短跑道长度；
+		//跑道长度 = v^2 / 2a;
+		System.out.print("请输入速度（M/S）、加速度（M/S^2）： ");
+		double speed = sc.nextDouble();
+		double acceleration = sc.nextDouble();
+		double minimumLength = Math.pow(speed,2) / (2 * acceleration);
+		
+		System.out.println("飞机最短跑道长度为： " + (int)(minimumLength * 1000) / 1000.0);
+		
+		
+		//求出六个月账户上的钱数；
+		//复利值，年利率为5%，六个月后，账户上的钱数；
+		System.out.print("请输入每月向银行存入的钱数：");
+		double amount = sc.nextDouble();
+		
+		double value = amount * (Math.pow(1.00417,6) + Math.pow(1.00417, 5) + Math.pow(1.00417,4) + Math.pow(1.00417, 3) + Math.pow(1.00417, 2) + Math.pow(1.00417, 1));
+		
+		System.out.println("六个月后，账户钱数为： " +(int)(value * 100 ) / 100.0);
+		
+		
+		//计算BMI
+		// BMI = 体重  / 身高^2;
+		
+		System.out.print("请输入体重（磅）和身高（英尺）： ");
+		double weight = sc.nextDouble();
+		double height2 = sc.nextDouble();
+		
+		double BMI = (weight * 0.45359237) / Math.pow((height2 * 0.0254),2);
+		
+		System.out.println("BMI为： " + (int)(BMI * 10000) / 10000.0);
+		
+		
+		//计算两点距离
+		System.out.print("请输入两个点（x1，y1）和（x2，y2）");
+		double x1 = sc.nextDouble();
+		double y1 = sc.nextDouble();
+		double x2 = sc.nextDouble();
+		double y2 = sc.nextDouble();
+		
+		double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+		System.out.println("两点间距离为： " + distance);
+		
+		
+		//计算六边形面积；
+		//面积 = Math.sqrt(27) / 2 * Math.pow(s,2);
+		System.out.print("请输入边长： ");
+		double s = sc.nextDouble();
+		
+		double areaOfHexagon = Math.sqrt(27) / 2 * Math.pow(s, 2);
+		
+		System.out.println("六边形的面积为： " + (int)(areaOfHexagon * 10000) / 10000.0);
+		
+		
+		//计算寒冷程度；
+		//t(wc) = 35.74 + 0.6215t(a) - 35.75v^0.16 + 0.4275t(a) * v^0.16;
+		System.out.print("请输入华氏摄氏度（-58 ~ 41 ）,以及风速（>=2） : ");
+		double outTemperature = sc.nextDouble();
+		double windSpeed = sc.nextDouble();
+		
+		double chillIndex = 35.74 + 0.6215 * outTemperature -35.75 * Math.pow(windSpeed, 0.16) + 0.4275 * outTemperature * Math.pow(windSpeed, 0.16);
+		System.out.println("风寒温度为： " + chillIndex);
+		
+		
+		//计算三角形的面积
+		//面积 = Math.sqrt(s * (s - 边1) * （s - 边2 ） * (s - 边3)),
+		// s = (边1 + 边2 + 边3)/2
+		
+		System.out.print("请输入三角形的三个点： ");
+		double a1 = sc.nextDouble();
+		double b1 = sc.nextDouble();
+		double c1 = sc.nextDouble();
+		double d1 = sc.nextDouble();
+		double e1 = sc.nextDouble();
+		double f1 = sc.nextDouble();
+		
+		double sOfTriangle = (Math.sqrt(Math.pow(c1-a1,2) + Math.pow(d1 - b1, 2)) + Math.sqrt(Math.pow(e1 - a1, 2) + Math.pow(f1 - b1, 2)) + Math.sqrt(Math.pow(e1 - c1, 2) + Math.pow(f1 - d1, 2))) / 2;
+		double s1 = Math.sqrt(Math.pow(c1-a1,2) + Math.pow(d1 - b1, 2));
+		double s2 = Math.sqrt(Math.pow(e1 - a1, 2) + Math.pow(f1 - b1, 2));
+		double s3 =  Math.sqrt(Math.pow(e1 - c1, 2) + Math.pow(f1 - d1, 2));
+		double areaOfTriangle = Math.sqrt(sOfTriangle * (sOfTriangle - s1) * (sOfTriangle - s2) * (sOfTriangle - s3));
+		
+		System.out.println("三角形的面积为： " + (int)(areaOfTriangle * 10 ) / 10.0);
+		
+		
+		//输入收支余额和年百分利率，计算基础利息额。
+		//利息额 = 收支余额 * （年利率 / 12）；
+		System.out.print("请输入收支余额 和年百分利率 ： ");
+		double balance = sc.nextDouble();
+		double interestRate = sc.nextDouble();
+		
+		double interest = balance * (interestRate / 1200);
+		
+		System.out.println("利息额为： " + interest);
+		
+		
+		//计算未来投资金额 ；
+		//未来投资金额 = 投资总额 * （1 + 月利率）^（年利率 * 12）；
+		System.out.print("请输入投资总额，年利率，和投资年数: ");
+		double investment = sc.nextDouble();
+		double annualInterest = sc.nextDouble();
+		int investmentOfYears = sc.nextInt();
+		
+		double accumulatedValue = investment * Math.pow(1 + annualInterest / 1200, investmentOfYears * 12);
+		System.out.println("未来投资金额为： " + (int)(accumulatedValue * 100 ) / 100.0);
+		
+		
+		//编写程度，提示用户输入驾驶的距离、以每加仑多少英里的汽车燃油性能，以及每加仑的价格，然后显示的旅程的费用；
+		System.out.print("请输入驾驶距离、每加仑多少英里的汽车燃油性能、以及每加仑的价格： ");
+		double distance1 = sc.nextDouble();
+		double miles = sc.nextDouble();
+		double price = sc.nextDouble();
+		
+		double cost = distance1 / miles * price;
+		System.out.println("旅程的费用： " + (int)(cost * 100 ) / 100.0);
+		
+		
+		
+	}
+}
